@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  challenge: one
+  date: 2018-11-26
+  status: false
+
+two:
+  user: two
+  challenge: two
+  date: 2018-11-26
+  status: false
