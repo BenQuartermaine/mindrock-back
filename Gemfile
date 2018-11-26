@@ -37,7 +37,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 # dotenv
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'rest-client'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
