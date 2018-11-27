@@ -25,4 +25,8 @@ c = Journal.new(content:"awesome")
 c.assignment = b
 c.save
 
+c.summary_tag_list.add("awesome", "fun", "cannot wait for tmr")
+
+
+
 puts "created #{Journal.count} journals, #{Assignment.count}assignments, #{Challenge.count}challenges, #{User.count}users"
