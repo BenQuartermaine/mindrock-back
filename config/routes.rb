@@ -8,9 +8,9 @@ Rails.application.routes.draw do
           resources :assignments, only: [:create]
         end
 
-        resources :assignments, only: [:show] do
-          resources :journals, only: [:create]
-        end
+      resources :assignments, only: [] do
+        resources :journals, only: [:create]
+      end
     end
   end
 
