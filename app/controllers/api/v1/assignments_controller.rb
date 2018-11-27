@@ -7,15 +7,18 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
 
   def create
     @challenge = Challenge.find(params[:challenge_id])
+
     @user = User.find(user_params)
-    current_day = DateTime.now.strftime("%Y-%m-%d")
-    puts current_day
-    # 7.times do
-      @assignment = Assignment.new(date: current_day)
+    current_day = DateTime.now
+
+    7.times do
+      @assignment = Assignment.new(date: current_day.strftime("%Y-%m-%d"))
+      @assignment.user = @user
       @assignment.challenge = @challenge
       @assignment.save
-    # end
-    puts @assignment
+      current_day += 1
+    end
+
     if @assignment.save
         render json: {
           assignment: @assignment
