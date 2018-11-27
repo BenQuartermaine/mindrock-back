@@ -12,7 +12,8 @@ Challenge.destroy_all
 User.destroy_all
 
 puts "creating new db"
-user = User.create
+user = User.new
+user.save
 
 a = Challenge.create(name:"7-Day Negotiation", description:"Take this challenge for 7 days, unleash your unrefusable negotiation skill")
 
