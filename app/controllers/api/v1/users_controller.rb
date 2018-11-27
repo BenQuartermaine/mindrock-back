@@ -2,6 +2,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def show
     @user = User.find(params[:id])
+    # create assignments, current challenge from frontend
   end
 
   def update
