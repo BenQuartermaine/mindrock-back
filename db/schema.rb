@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_033235) do
-
+ActiveRecord::Schema.define(version: 2018_11_28_045054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +26,18 @@ ActiveRecord::Schema.define(version: 2018_11_27_033235) do
     t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "challenges", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -78,5 +84,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_033235) do
 
   add_foreign_key "assignments", "challenges"
   add_foreign_key "assignments", "users"
+  add_foreign_key "challenges", "categories"
   add_foreign_key "journals", "assignments"
 end
