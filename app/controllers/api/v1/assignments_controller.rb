@@ -15,9 +15,12 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
       @assignment = Assignment.new(date: current_day.strftime("%Y-%m-%d"))
       @assignment.user = @user
       @assignment.challenge = @challenge
+      @assignment.status = false
       @assignment.save
       current_day += 1
     end
+
+    return
 
     if @assignment.save
         render json: {
