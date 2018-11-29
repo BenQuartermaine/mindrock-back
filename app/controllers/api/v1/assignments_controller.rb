@@ -20,12 +20,10 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
       current_day += 1
     end
 
-    return
-
     if @assignment.save
-        render json: {
-          assignment: @assignment
-        }
+      render json: {
+        assignment: @assignment
+      }
     else
       render_error
     end
