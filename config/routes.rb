@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         end
 
       resources :assignments, only: [] do
-        resources :journals, only: [:create]
+        resources :journals, only: [:show, :create]
       end
     end
   end

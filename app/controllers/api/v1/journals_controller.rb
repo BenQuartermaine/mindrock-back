@@ -1,6 +1,8 @@
 class Api::V1::JournalsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
+  def show
+  end
   def create
     @assignment = Assignment.find(params[:assignment_id])
     # update assignment status
