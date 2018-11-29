@@ -3,7 +3,7 @@ json.user do
 
   json.challenges @user.challenges.uniq do |challenge|
     json.extract! challenge, :id, :name, :description, :challenge_tag_list
-    json.assignments challenge.assignments do |a|
+    json.assignments challenge.assignments.sort do |a|
       json.extract! a, :id, :date, :status
     end
   end
