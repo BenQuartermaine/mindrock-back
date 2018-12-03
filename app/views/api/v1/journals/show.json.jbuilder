@@ -1,5 +1,6 @@
-json.extract! @assignment, :id, :user_id, :challenge_id, :date, :status
-  json.journal @assignment.journal do
-    json.extract! journal, :id, :content, :photo_tag_list
+
+json.journal do
+  json.extract! @assignment, :id, :date
+  json.extract! @journal, :id, :assignment_id, :content, :photo_tags
 end
 
