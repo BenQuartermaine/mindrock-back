@@ -11,23 +11,27 @@ Assignment.destroy_all
 Challenge.destroy_all
 User.destroy_all
 
-puts "creating new db"
-user = User.new
-user.save
+# puts "creating new db"
+# user = User.new
+# user.save
 
-a = Challenge.create(name:"7-Day Negotiation", description:"Take this challenge for 7 days, unleash your unrefusable negotiation skill")
+# a = Challenge.create(name:"7-Day Negotiation", description:"Take this challenge for 7 days, unleash your unrefusable negotiation skill")
 
-b = Assignment.new(status: false)
-b.user = user
-b.challenge = a
-b.save
+# b = Assignment.new(status: false)
+# b.user = user
+# b.challenge = a
+# b.save
 
-c = Journal.new(content:"awesome")
-c.assignment = b
-c.save
+# c = Journal.new(content:"awesome")
+# c.assignment = b
+# c.save
 
-c.summary_tag_list.add("awesome", "fun", "cannot wait for tmr")
+# c.summary_tag_list.add("awesome", "fun", "cannot wait for tmr")
+catogories = ['Creativity', 'Self-Awareness', 'Communication', 'Courage', 'Habit-Building', 'Productivity']
 
+6.times do
+ Category.create(name: "#{catogories.sample}")
+end
 
+puts "created #{Category.count} catogories, #{Assignment.count}assignments, #{Challenge.count}challenges, #{User.count}users"
 
-puts "created #{Journal.count} journals, #{Assignment.count}assignments, #{Challenge.count}challenges, #{User.count}users"
