@@ -75,20 +75,20 @@ ActiveRecord::Schema.define(version: 2018_12_03_043222) do
   end
 
   create_table "team_users", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "teams_id"
+    t.bigint "user_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teams_id"], name: "index_team_users_on_teams_id"
-    t.index ["users_id"], name: "index_team_users_on_users_id"
+    t.index ["team_id"], name: "index_team_users_on_team_id"
+    t.index ["user_id"], name: "index_team_users_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.integer "leader"
-    t.bigint "challenges_id"
+    t.bigint "challenge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenges_id"], name: "index_teams_on_challenges_id"
+    t.index ["challenge_id"], name: "index_teams_on_challenge_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_043222) do
   add_foreign_key "assignments", "users"
   add_foreign_key "challenges", "categories"
   add_foreign_key "journals", "assignments"
-  add_foreign_key "team_users", "teams", column: "teams_id"
-  add_foreign_key "team_users", "users", column: "users_id"
-  add_foreign_key "teams", "challenges", column: "challenges_id"
+  add_foreign_key "team_users", "teams"
+  add_foreign_key "team_users", "users"
+  add_foreign_key "teams", "challenges"
 end
