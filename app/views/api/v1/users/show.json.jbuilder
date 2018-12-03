@@ -6,7 +6,11 @@ json.user do
       json.team do
         json.extract! challenge, :id, :name, :description, :challenge_tag_list
         json.assignments challenge.assignments.sort do |a|
-          json.extract! a, :id, :date, :status
+          json.extract! a, :id, :date, :status, :user_id
+        end
+        team = challenge.team_for(@user)[0]
+        json.teammates team.users do |u|
+          json.extract! u, :id, :open_id, :nickName, :avatarUrl, :gender
         end
       end
     else
@@ -15,7 +19,6 @@ json.user do
         json.assignments challenge.assignments.sort do |a|
           json.extract! a, :id, :date, :status
         end
-
       end
     end
   end
