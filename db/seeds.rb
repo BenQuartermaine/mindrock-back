@@ -6,32 +6,49 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "clearing up db"
+
 Journal.destroy_all
 Assignment.destroy_all
 Challenge.destroy_all
 User.destroy_all
+Category.destroy_all
 
-# puts "creating new db"
-# user = User.new
-# user.save
+category = ['Creativity','Self-Awareness','Communication','Courage','Habit-Building','Productivity']
+Category.create!(name: category[0])
+Category.create(name: category[1])
+Category.create(name: category[2])
+Category.create(name: category[3])
+Category.create(name: category[4])
+Category.create(name: category[5])
 
-# a = Challenge.create(name:"7-Day Negotiation", description:"Take this challenge for 7 days, unleash your unrefusable negotiation skill")
+p "created #{Category.count} catogories"
 
-# b = Assignment.new(status: false)
-# b.user = user
-# b.challenge = a
-# b.save
+Challenge.create(name:"Creative Input", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
+Challenge.create(name:"Painting", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
+Challenge.create(name:"Imcomplete Figure", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
+Challenge.create(name:"Writing", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
 
-# c = Journal.new(content:"awesome")
-# c.assignment = b
-# c.save
+Challenge.create(name:"Confidence", description:"Take this challenge for 7 days, unleash your unrefusable Self-Awareness skill.", category_id: 2)
+Challenge.create(name:"Journaling", description:"Take this challenge for 7 days, unleash your unrefusable Self-Awareness skill.", category_id: 2)
+Challenge.create(name:"Minfulness", description:"Take this challenge for 7 days, unleash your unrefusable Self-Awareness skill.", category_id: 2)
+Challenge.create(name:"Love", description:"Take this challenge for 7 days, unleash your unrefusable Self-Awareness skill.", category_id: 2)
 
-# c.summary_tag_list.add("awesome", "fun", "cannot wait for tmr")
-catogories = ['Creativity', 'Self-Awareness', 'Communication', 'Courage', 'Habit-Building', 'Productivity']
+Challenge.create(name:"Public Speaking", description:"Take this challenge for 7 days, unleash your unrefusable Communication skill.", category_id: 3)
+Challenge.create(name:"Negotaition", description:"Take this challenge for 7 days, unleash your unrefusable Communication skill.", category_id: 3)
+Challenge.create(name:"Talk to strangers", description:"Take this challenge for 7 days, unleash your unrefusable Communication skill.", category_id: 3)
+Challenge.create(name:"Make New Friends", description:"Take this challenge for 7 days, unleash your unrefusable Communication skill.", category_id: 3)
 
-6.times do
- Category.create(name: "#{catogories.sample}")
-end
+Challenge.create(name:"Courage", description:"Take this challenge for 7 days, unleash your unrefusable Courage skill.", category_id: 4)
+Challenge.create(name:"Marathon", description:"Take this challenge for 7 days, unleash your unrefusable Courage skill.", category_id: 4)
+Challenge.create(name:"Tolerance", description:"Take this challenge for 7 days, unleash your unrefusable Courage skill.", category_id: 4)
+Challenge.create(name:"Resilence", description:"Take this challenge for 7 days, unleash your unrefusable Courage skill.", category_id: 4)
 
-puts "created #{Category.count} catogories, #{Assignment.count}assignments, #{Challenge.count}challenges, #{User.count}users"
+Challenge.create(name:"Sleep Early", description:"Take this challenge for 7 days, unleash your unrefusable Habit-Building skill.", category_id: 5)
+Challenge.create(name:"Digital Detox", description:"Take this challenge for 7 days, unleash your unrefusable Habit-Building skill.", category_id: 5)
+Challenge.create(name:"Hit The Gym", description:"Take this challenge for 7 days, unleash your unrefusable Habit-Building skill.", category_id: 5)
+Challenge.create(name:"Pray", description:"Take this challenge for 7 days, unleash your unrefusable Habit-Building skill.", category_id: 5)
 
+Challenge.create(name:"Morning Hacks", description:"Take this challenge for 7 days, unleash your unrefusable Productivity skill.", category_id: 6)
+Challenge.create(name:"Ultimate Sleep", description:"Take this challenge for 7 days, unleash your unrefusable Productivity skill.", category_id: 6)
+Challenge.create(name:"Limit Social Activity", description:"Take this challenge for 7 days, unleash your unrefusable Productivity skill.", category_id: 6)
+Challenge.create(name:"Break Sessions", description:"Take this challenge for 7 days, unleash your unrefusable Productivity skill.", category_id: 6)
