@@ -30,6 +30,7 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
   end
 
   private
+
   def user_params
     params[:user_id]
   end
