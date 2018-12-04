@@ -11,7 +11,7 @@ class Challenge < ApplicationRecord
   def team_for(user)
     teams = Team.where(challenge_id: self.id).to_a
     teams.each do |t|
-      teams.pop(t) unless t.users.include?(user)
+      teams.delete(t) unless t.users.include?(user)
     end
 
     if teams.length > 0
