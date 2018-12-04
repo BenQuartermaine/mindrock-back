@@ -1,5 +1,6 @@
 json.user do
   json.extract! @user, :id, :open_id, :nickName, :avatarUrl, :gender
+  json.max @user.max
 
   json.challenges @user.challenges.uniq.reverse do |challenge|
     if challenge.team_for(@user)
