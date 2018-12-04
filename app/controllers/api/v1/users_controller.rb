@@ -6,6 +6,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     # create assignments, current challenge from frontend
   end
 
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
