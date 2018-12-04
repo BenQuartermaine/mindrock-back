@@ -3,8 +3,10 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
   # before_action :set_assignment, only: :show
 
   def index
+    p params[:date]
     @user = User.find(user_params)
-    @assignments = @user.assignments
+    p @assignments = @user.assignments.select { |assignment| assignment.date.strftime("%Y-%m-%d") == params[:date]}
+    # p @user.assignments
   end
 
   def create
