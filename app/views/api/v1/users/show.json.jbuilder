@@ -10,6 +10,7 @@ json.user do
       team.each do |t|
         json.team do
           json.extract! challenge, :id, :name, :description
+          json.team_id t, :id
           json.teams challenge.team_hash(t)
         end
       end
