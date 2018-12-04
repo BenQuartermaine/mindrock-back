@@ -12,6 +12,7 @@ class Assignment < ApplicationRecord
     if j.nil?
       {
         assignment_id: self.id,
+        user_id: u.id,
         avatarUrl: u.avatarUrl,
         content: "",
         status: self.status
@@ -19,6 +20,7 @@ class Assignment < ApplicationRecord
     else
       {
         assignment_id: self.id,
+        user_id: u.id,
         avatarUrl: u.avatarUrl,
         content: j.content,
         status: self.status
