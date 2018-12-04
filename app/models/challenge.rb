@@ -20,4 +20,10 @@ class Challenge < ApplicationRecord
       return false
     end
   end
+
+  def team_hash(team)
+    assignments = self.assignments.select { |a| team.users.include?(a.user) }
+    assignments = assignments.group_by { |a| a.date }
+    p assignments.each { |k, v| v.map! { |a| a.journal_hash } }
+  end
 end
