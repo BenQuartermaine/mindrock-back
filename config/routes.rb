@@ -9,6 +9,9 @@ Rails.application.routes.draw do
         resources :challenges, only: [:index, :show] do
           resources :assignments, only: [:create]
         end
+      resources :users, only: [:show] do
+        resources :assignments, only: [:index]
+      end
 
       resources :assignments, only: [] do
         resources :journals, only: [:create, :index]

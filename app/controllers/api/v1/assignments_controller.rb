@@ -1,8 +1,10 @@
 class Api::V1::AssignmentsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
-  before_action :set_assignment, only: :show
+  # before_action :set_assignment, only: :show
 
-  def show
+  def index
+    @user = User.find(user_params)
+    @assignments = @user.assignments
   end
 
   def create
@@ -35,7 +37,7 @@ class Api::V1::AssignmentsController < Api::V1::BaseController
     params[:user_id]
   end
 
-  def set_assignment
-    @assignment = Assignment.find(params[:id])
-  end
+  # def set_assignment
+  #   @assignment = Assignment.find(params[:date])
+  # end
 end
