@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   validates :open_id, presence: true, uniqueness: true
 
-
   def max
     h = assignments.sort_by{|x| x.id}.map{|x| x.status }
     arr = []
