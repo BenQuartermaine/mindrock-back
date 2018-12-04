@@ -11,12 +11,14 @@ class Assignment < ApplicationRecord
 
     if j.nil?
       {
+        assignment_id: self.id,
         avatarUrl: u.avatarUrl,
         content: "",
         status: self.status
       }
     else
       {
+        assignment_id: self.id,
         avatarUrl: u.avatarUrl,
         content: j.content,
         status: self.status
