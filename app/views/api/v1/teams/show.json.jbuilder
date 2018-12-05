@@ -1,4 +1,3 @@
 json.team do
-    json.extract! @team, :id, :team_users
-  end
+  json.extract! @team.users, :id, :avatarUrl, :nickName
 end
