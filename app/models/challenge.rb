@@ -24,6 +24,7 @@ class Challenge < ApplicationRecord
   def team_hash(team)
     assignments = self.assignments.select { |a| team.users.include?(a.user) }
     assignments = assignments.group_by { |a| a.date }
-    p assignments.each { |k, v| v.map! { |a| a.journal_hash } }
+    assignments.each { |k, v| v.map! { |a| a.journal_hash } }
+    assignments.sort
   end
 end
