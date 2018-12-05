@@ -25,7 +25,7 @@ Category.create(name: category[5])
 
 p "created #{Category.count} catogories"
 
-Challenge.create(name:"Creative Input", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
+Challenge.create!(name:"Creative Input", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
 Challenge.create(name:"Painting", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
 Challenge.create(name:"Imcomplete Figure", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
 Challenge.create(name:"Writing", description:"Take this challenge for 7 days, unleash your unrefusable Creativty skill.", category_id: 1)
