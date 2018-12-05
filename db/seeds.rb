@@ -9,6 +9,8 @@ puts "clearing up db"
 
 Journal.destroy_all
 Assignment.destroy_all
+TeamUser.destroy_all
+Team.destory_all
 Challenge.destroy_all
 User.destroy_all
 Category.destroy_all
