@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         resources :journals, only: [:create, :index]
       end
 
-      resources :teams, only: [:create, :update]
+      resources :teams, only: [:show, :create, :update]
     end
   end
 

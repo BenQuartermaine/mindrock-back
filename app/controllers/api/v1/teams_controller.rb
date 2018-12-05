@@ -1,6 +1,11 @@
 class Api::V1::TeamsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
+
+  def show
+    @team = Team.find(params[:id])
+  end
+
   def create
     @team = Team.new(leader: params[:userId], challenge_id: params[:challenge_id])
 
