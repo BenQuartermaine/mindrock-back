@@ -19,7 +19,7 @@ json.user do
     else
       json.dashboard do
         json.extract! challenge, :id, :name, :description, :challenge_tag_list
-        json.assignments challenge.assignments.sort do |a|
+        json.assignments challenge.assignments.where("user_id = #{@user.id}").sort do |a|
           json.extract! a, :id, :date, :status
         end
       end
