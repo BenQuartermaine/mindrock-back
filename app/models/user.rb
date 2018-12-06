@@ -16,10 +16,9 @@ class User < ApplicationRecord
     arr = []
     h.each_with_index do |x, i|
       if x
-        arr << {index: i, status: x}
+        arr << {index: i + 1, status: x}
       end
     end
-    p arr
     brr = []
 
     arr.each_with_index do |x, i|
@@ -27,7 +26,6 @@ class User < ApplicationRecord
         brr << (arr[i+1][:index] - x[:index])
       end
     end
-    p brr
     result = brr.map{|x| x== 1 ? 1 : '-'}.join().split('-').map{|x| x.length}.sort.last
     result.nil? ? 0 : result + 1
   end
