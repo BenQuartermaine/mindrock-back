@@ -9,10 +9,10 @@ class Challenge < ApplicationRecord
   validates :description, presence: true
 
   def team_for(user)
-    teams = Team.where(challenge_id: self.id).to_a
-    teams.each do |t|
-      teams.delete(t) unless t.users.include?(user)
-    end
+    teams = Team.where(challenge_id: self.id).select{|t| t.users.include?(user)}
+    # teams.each do |t|
+    #   teams.delete(t) unless t.users.include?(user)
+    # end
 
     if teams.length > 0
       return teams
